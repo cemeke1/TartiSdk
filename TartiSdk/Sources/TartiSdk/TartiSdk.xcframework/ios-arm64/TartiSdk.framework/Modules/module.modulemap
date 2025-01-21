@@ -1,0 +1,11 @@
+framework module TartiSdk {
+  umbrella header "TartiSdk.h"
+  export *
+
+  module * { export * }
+}
+
+module TartiSdk.Swift {
+  header "TartiSdk-Swift.h"
+  requires objc
+}
