@@ -3,16 +3,30 @@
 
 import PackageDescription
 
+import PackageDescription
+
 let package = Package(
     name: "Tarti",
-    targets: [
-        .executableTarget(
+    products: [
+        .library(
             name: "Tarti",
-            dependencies: [
-                "Tarti",
-            ],
-            path: "Sources"
+            targets: ["Tarti"]),
+    ],
+    dependencies: [],
+    targets: [
+        .target(
+            name: "Tarti",
+            dependencies: []
         ),
-        .binaryTarget(name: "Tarti", path: "Tarti/TartiSdk.xcframework"),
+        .binaryTarget(
+              name: "TartiSdk",
+              path: "Sources/Tarti/TartiSdk.xcframework"
+        ),
+        .testTarget(
+            name: "TartiTests",
+            dependencies: ["Tarti"]
+        ),
     ]
 )
+
+
